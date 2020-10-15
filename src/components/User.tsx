@@ -40,7 +40,7 @@ const User = ({
       <Followers followers={user.followers} />
       <Following following={user.following} />
       <img src={user.avatar_url} alt={login} />
-      <Button title="Deletar" handleRemoveUser={handleRemoveUser}  />
+      <Button title={isDeleted ? 'Restaurar' : 'Deletar'} handleRemoveUser={handleRemoveUser}  />
     </Article>
   );
 };

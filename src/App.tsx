@@ -15,14 +15,15 @@ function App() {
   useEffect(() => {
     (async function getUsers() {
       const response = await api.get('/users');
-      setUsers(response.data);
 
-      // await Promise.all(
-      //   response.data.slice(0, 10).map(async (user: ResponseProps) => {
-      //     const response = await api.get(`/users/${user.login}`);
-      //     setUsers(response.data);
-      //   })
-      // );
+      const allUsers:ResponseProps[]  = await Promise.all(
+        response.data.slice(0, 10).map(async (user: ResponseProps) => {
+          const responseData = await api.get(`/users/${user.login}`);
+          return responseData.data;
+        })
+      );
+
+      setUsers(allUsers);
     })();
   }, []);
 
@@ -55,7 +56,7 @@ function App() {
       <BoxInputButton>
         <Input value={search} onChange={(e) => setSearch(e.target.value)} />
         <Button onClick={handleSeeDeleted} type="submit">
-          Apagados
+          {!seeDeleted ? 'Apagados' : 'Ativos'}
         </Button>
       </BoxInputButton>
 
