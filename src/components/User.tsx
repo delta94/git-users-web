@@ -1,7 +1,7 @@
 import React from 'react';
 import UserProps from '../interfaces/UserProps';
 
-import { Container, Article } from '../styles/components/user';
+import { Container, Article, Following } from '../styles/components/user';
 
 const User = ({
   user,
@@ -31,7 +31,7 @@ const User = ({
           <p>Login: {login}</p>
         </a>
         <p>Id: {user.id}</p>
-        <p>following</p>
+        <Following>following</Following>
         <p>followers</p>
         <p>UserId: {user.node_id}</p>
         <img src={user.avatar_url} alt={login} />

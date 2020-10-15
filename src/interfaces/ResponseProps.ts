@@ -4,6 +4,8 @@ type ResponseProps = {
   html_url: string;
   avatar_url: string;
   login: string;
+  followers: number;
+  following: number;
 };
 
 export default ResponseProps;
