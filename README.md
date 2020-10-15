@@ -3,7 +3,7 @@
 ### 😀 Git Users Web
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Git Users Web" src="https://github.com/vbeloti/happy-web/blob/master/.github/git-users-web-1.jpg?raw=true" />
+  <img alt="Git Users Web" src="https://github.com/vbeloti/git-users-web/blob/master/.github/git-users-web-1.jpg?raw=true" />
 </p>
 
 ### 💻 Link
