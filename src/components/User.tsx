@@ -15,7 +15,7 @@ const User = ({
   deletedUsers,
   isDeleted,
 }: UserProps) => {
-  const handleRemoveUser = (event: MouseEvent) => {
+  const handleRemoveUser = () => {
     if (!isDeleted) {
       setUsers(users.filter((user) => user.id !== userId));
       setDeletedUsers([
