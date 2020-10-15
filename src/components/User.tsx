@@ -1,7 +1,15 @@
 import React from 'react';
 import UserProps from '../interfaces/UserProps';
 
-import { Container, Article, Following } from '../styles/components/user';
+import {
+  Article,
+} from '../styles/components/user';
+import Button from './Button';
+import Followers from './Followers';
+import Following from './Following';
+import Id from './Id';
+import Login from './Login';
+import NodeId from './NodeId';
 
 const User = ({
   user,
@@ -25,21 +33,15 @@ const User = ({
   };
 
   return (
-    <Container>
-      <Article>
-        <a target="_blank" rel="noopener noreferrer" href={user.html_url}>
-          <p>Login: {login}</p>
-        </a>
-        <p>Id: {user.id}</p>
-        <Following>following</Following>
-        <p>followers</p>
-        <p>UserId: {user.node_id}</p>
-        <img src={user.avatar_url} alt={login} />
-        <button onClick={handleRemoveUser} type="submit">
-          Deletar
-        </button>
-      </Article>
-    </Container>
+    <Article>
+      <Login login={login} htmlUrl={user.html_url} />
+      <Id id={user.id} />
+      <NodeId nodeId={user.node_id} />
+      <Followers followers={user.followers} />
+      <Following following={user.following} />
+      <img src={user.avatar_url} alt={login} />
+      <Button title="Deletar" handleRemoveUser={handleRemoveUser}  />
+    </Article>
   );
 };
 

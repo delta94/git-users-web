@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import User from './components/User';
 import ResponseProps from './interfaces/ResponseProps';
 import api from './services/api';
-import './styles/global';
+import GlobalStyle from './styles/global';
 
-import { Container } from './styles/app';
+import { Container, Input, BoxInputButton, Button, ContainerUser } from './styles/app';
 
 function App() {
   const [users, setUsers] = useState<ResponseProps[]>([]);
@@ -38,7 +38,7 @@ function App() {
     (user) => {
       if (
         !search ||
-        user.login.includes(search) ||
+        user?.login?.includes(search) ||
         String(user.id) === search
       ) {
         return true;
@@ -51,23 +51,30 @@ function App() {
 
   return (
     <Container>
-      <input value={search} onChange={(e) => setSearch(e.target.value)} />
-      <button onClick={handleSeeDeleted} type="submit">
-        Ver Deletados
-      </button>
+      <GlobalStyle />
+      <BoxInputButton>
+        <Input value={search} onChange={(e) => setSearch(e.target.value)} />
+        <Button onClick={handleSeeDeleted} type="submit">
+          Apagados
+        </Button>
+      </BoxInputButton>
 
-      {(seeDeleted ? deletedUsers : users).filter(filterResults).map((user) => (
-        <User
-          key={user.id}
-          user={user}
-          login={user.login}
-          setUsers={setUsers}
-          setDeletedUsers={setDeletedUsers}
-          users={users}
-          deletedUsers={deletedUsers}
-          isDeleted={seeDeleted}
-        />
-      ))}
+      <ContainerUser>
+        {(seeDeleted ? deletedUsers : users)
+          .filter(filterResults)
+          .map((user) => (
+            <User
+              key={user.login ?? Date.now()}
+              user={user}
+              login={user.login}
+              setUsers={setUsers}
+              setDeletedUsers={setDeletedUsers}
+              users={users}
+              deletedUsers={deletedUsers}
+              isDeleted={seeDeleted}
+            />
+          ))}
+      </ContainerUser>
     </Container>
   );
 }

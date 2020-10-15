@@ -10,16 +10,12 @@ export default createGlobalStyle`
 
   body {
     -webkit-font-smoothing: antialiased;
-    background-color: #ebf2f5;
+    background-color: #F6F6F6;
   }
 
   body, input, button {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
-  }
-
-  button: {
-    cursor: pointer;
   }
 
 `
