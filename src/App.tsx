@@ -49,10 +49,7 @@ function App() {
       {(seeDeleted ? deletedUsers : users).filter(filterResults).map((user) => (
         <User
           key={user.id}
-          userId={user.id}
-          nodeId={user.node_id}
-          htmlUrl={user.html_url}
-          avatarUrl={user.avatar_url}
+          user={user}
           login={user.login}
           setUsers={setUsers}
           setDeletedUsers={setDeletedUsers}

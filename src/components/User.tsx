@@ -1,13 +1,10 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import UserProps from '../interfaces/UserProps';
 
 import { Container, Article } from '../styles/components/user';
 
 const User = ({
-  userId,
-  nodeId,
-  htmlUrl,
-  avatarUrl,
+  user,
   login,
   setUsers,
   setDeletedUsers,
@@ -17,44 +14,27 @@ const User = ({
 }: UserProps) => {
   const handleRemoveUser = () => {
     if (!isDeleted) {
-      setUsers(users.filter((user) => user.id !== userId));
-      setDeletedUsers([
-        ...deletedUsers,
-        {
-          id: userId,
-          node_id: nodeId,
-          html_url: htmlUrl,
-          avatar_url: avatarUrl,
-          login: login,
-        },
-      ]);
+      setUsers(users.filter((userFilter) => userFilter.id !== user.id));
+      setDeletedUsers([...deletedUsers, user]);
     } else {
-      setUsers([
-        ...users,
-        {
-          id: userId,
-          node_id: nodeId,
-          html_url: htmlUrl,
-          avatar_url: avatarUrl,
-          login: login,
-        },
-      ]);
-
-      setDeletedUsers(deletedUsers.filter((deletedUser) => deletedUser.id !== userId));
+      setUsers([...users, user]);
+      setDeletedUsers(
+        deletedUsers.filter((deletedUser) => deletedUser.id !== user.id)
+      );
     }
   };
 
   return (
     <Container>
       <Article>
-        <a target="_blank" rel="noopener noreferrer" href={htmlUrl}>
+        <a target="_blank" rel="noopener noreferrer" href={user.html_url}>
           <p>Login: {login}</p>
         </a>
-        <p>Id: {nodeId}</p>
+        <p>Id: {user.id}</p>
         <p>following</p>
         <p>followers</p>
-        <p>UserId: {userId}</p>
-        <img src={avatarUrl} alt={login} />
+        <p>UserId: {user.node_id}</p>
+        <img src={user.avatar_url} alt={login} />
         <button onClick={handleRemoveUser} type="submit">
           Deletar
         </button>
