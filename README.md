@@ -22,8 +22,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ### Pré-requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+1º Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js][nodejs].
+2º Por padrão o Github limita o uso da API e caso exista o error 403 (rate limit exceeded), será necessário gerar um token [Como Criar um Token][token], alterar o arquivo .env.example para .env e adicionar a chave gerada no item (REACT_APP_GIT_TOKEN=).
 
 ### 🧭 Rodando a aplicação
 
@@ -52,3 +53,4 @@ Feito com ❤️ por Vinicius Beloti 👋🏽 [Entre em contato!](https://www.li
 [nodejs]: https://nodejs.org/
 [typescript]: https://www.typescriptlang.org/
 [reactjs]: https://reactjs.org
+[token]: https://docs.github.com/pt/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token
