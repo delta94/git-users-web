@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import User from './components/User';
 import ResponseProps from './interfaces/ResponseProps';
 import api from './services/api';
@@ -36,7 +36,7 @@ function App() {
     }
   };
 
-  const filterResults = React.useCallback(
+  const filterResults = useCallback(
     (user) => {
       if (
         !search ||
