@@ -5,6 +5,7 @@ import api from './services/api';
 import GlobalStyle from './styles/global';
 
 import { Container, Input, BoxInputButton, Button, ContainerUser } from './styles/app';
+import Loading from './components/Loading';
 
 function App() {
   const [users, setUsers] = useState<ResponseProps[]>([]);
@@ -49,6 +50,14 @@ function App() {
     },
     [search]
   );
+
+  console.log(users)
+
+  if (users.length === 0) {
+    return (
+      <Loading />
+    )
+  }
 
   return (
     <Container>
