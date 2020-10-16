@@ -51,8 +51,6 @@ function App() {
     [search]
   );
 
-  console.log(users)
-
   if (users.length === 0) {
     return (
       <Loading />
